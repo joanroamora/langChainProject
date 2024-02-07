@@ -1,21 +1,25 @@
                     
 from langchain_community.document_loaders import PyPDFLoader
-from langchain.text_splitter import CharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 import tiktoken
 
 loader = PyPDFLoader("pdfs/prueba.pdf")
-pages = loader.load()
+pages = loader.load_and_split()
 
 print(pages[0])
-
-#print(pages[1])
 
 print(len(pages))
 
 
-#text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
-#    chunk_size=500, chunk_overlap=50
-#)
-#texts = text_splitter.split_text(pages)
+text_splitter = RecursiveCharacterTextSplitter(
+    # Set a really small chunk size, just to show.
+    chunk_size=100,
+    chunk_overlap=20,
+    length_function=len,
+    is_separator_regex=False,
+)
 
-#print(texts[0])
+documents = text_splitter.split_documents(pages)
+
+print(len(pages))
+print(len(documents))
