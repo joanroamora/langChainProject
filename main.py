@@ -21,5 +21,5 @@ text_splitter = RecursiveCharacterTextSplitter(
 
 documents = text_splitter.split_documents(pages)
 
-print(len(pages))
-print(len(documents))
+print("La cantidad en documents solo con document loader es: " + len(pages))
+print("La cantidad en documents luego del text_splitter es: " + len(documents))
