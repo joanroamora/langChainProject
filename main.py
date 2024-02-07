@@ -1,6 +1,7 @@
                     
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from sentence_transformers import SentenceTransformer
 import tiktoken
 
 loader = PyPDFLoader("pdfs/prueba.pdf")
@@ -23,3 +24,7 @@ documents = text_splitter.split_documents(pages)
 
 print("La cantidad en documents solo con document loader es: " + str(len(pages)))
 print("La cantidad en documents luego del text_splitter es: " + str(len(documents)))
+
+embeddings_st = SentenceTransformerEmbeddings(
+    model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
+)
