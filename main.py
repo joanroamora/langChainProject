@@ -25,6 +25,9 @@ documents = text_splitter.split_documents(pages)
 print("La cantidad en documents solo con document loader es: " + str(len(pages)))
 print("La cantidad en documents luego del text_splitter es: " + str(len(documents)))
 
+
+sentences = ["This is an example sentence", "Each sentence is converted"]
+
 model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
-embeddings = model.encode(pages)
+embeddings = model.encode(sentences)
 print(embeddings)
