@@ -13,8 +13,8 @@ print(len(pages))
 
 text_splitter = RecursiveCharacterTextSplitter(
     # Set a really small chunk size, just to show.
-    chunk_size=100,
-    chunk_overlap=20,
+    chunk_size=500,
+    chunk_overlap=75,
     length_function=len,
     is_separator_regex=False,
 )
