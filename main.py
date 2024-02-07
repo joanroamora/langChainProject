@@ -27,19 +27,18 @@ print("La cantidad en documents solo con document loader es: " + str(len(pages))
 print("La cantidad en documents luego del text_splitter es: " + str(len(documents)))
 
 
-""" sentences = ["This is an example sentence", "Each sentence is converted"]
-
+sentences = ["This is an example sentence", "Each sentence is converted"]
+"""
 model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
 embeddings = model.encode(sentences)
 print(embeddings) """
 
-from langchain.embeddings import SentenceTransformerEmbeddings
 
 embeddings_st = SentenceTransformerEmbeddings(
     model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 )
 
-incrustaciones = embeddings_st.embed_documents(documents)
+incrustaciones = embeddings_st.embed_documents(sentences)
 len(incrustaciones)
 
-print("La cantidad en documents solo con document loader es: " + str(len(incrustaciones)))
+print("Embeddings: " + str(len(incrustaciones)))
