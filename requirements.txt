@@ -1,13 +1,2 @@
-requests
-pyyaml
-termcolor
-emoji
-transformers
-torch
 langchain
-jsonlines
-tiktoken
-openai
-chromadb
-rich
-pypdf
+pypdf2
