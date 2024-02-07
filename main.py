@@ -4,11 +4,11 @@ from langchain.text_splitter import CharacterTextSplitter
 import tiktoken
 
 loader = PyPDFLoader("pdfs/prueba.pdf")
-pages = loader.load_and_split()
+pages = loader.load()
 
 print(pages[0])
 
-print(pages[1])
+#print(pages[1])
 
 print(len(pages))
 
