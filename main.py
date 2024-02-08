@@ -42,3 +42,4 @@ incrustaciones = embeddings_st.embed_documents(sentences)
 len(incrustaciones)
 
 print("Embeddings: " + str(len(incrustaciones)))
+print(incrustaciones)
