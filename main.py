@@ -38,7 +38,7 @@ embeddings_st = SentenceTransformerEmbeddings(
     model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 )
 
-incrustaciones = embeddings_st.embed_documents(pages)
+incrustaciones = embeddings_st.embed_documents(sentences)
 len(incrustaciones)
 
 print("Embeddings: " + str(len(incrustaciones)))
