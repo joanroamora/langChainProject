@@ -35,11 +35,6 @@ print("La cantidad en documents luego del text_splitter es: " + str(len(document
 
 ##EMBEDDINGS CREATION FOR STR PROMPT SCENARIO
 sentences = ["This is an example sentence", "Each sentence is converted"]
-"""
-model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
-embeddings = model.encode(sentences)
-print(embeddings) """
-
 
 embeddings_st = SentenceTransformerEmbeddings(
     model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
@@ -53,7 +48,7 @@ print(incrustaciones)
 
 ##VECTORIAL DB CHROMA APPLICATION
 
-NOMBRE_INDICE_CHROMA = "instruct-embeddings-public-crypto"
+""" NOMBRE_INDICE_CHROMA = "instruct-embeddings-public-crypto"
 
 vectorstore_chroma = Chroma.from_documents(
     documents=documents,
@@ -61,4 +56,13 @@ vectorstore_chroma = Chroma.from_documents(
     persist_directory=NOMBRE_INDICE_CHROMA
 )
 
-type(embedding_instruct)
+type(embedding_instruct) """
+
+chroma_client = chromadb.Client()
+collection = chroma_client.create_collection(name="my_collection")
+collection.add(
+    embeddings=[incrustaciones],
+    documents=[documents],
+    metadatas=[{"source": "my_source"}, {"source": "my_source"}],
+    ids=["id1", "id2"]
+)
