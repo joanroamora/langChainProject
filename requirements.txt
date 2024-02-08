@@ -2,3 +2,4 @@ langchain
 pypdf
 tiktoken
 sentence_transformers
+chromadb
